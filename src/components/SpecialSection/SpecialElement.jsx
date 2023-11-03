@@ -20,7 +20,7 @@ display: flex;
 justify-content: center;
 align-items: center;
   width: 330px;
-  height:220px;
+  height:222px;
   border: 1px solid gray;
   border-radius: 10%;
   
