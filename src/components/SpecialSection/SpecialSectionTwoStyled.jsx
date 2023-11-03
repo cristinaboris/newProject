@@ -1,9 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
-import star from '../../assets/Star 1.png'
-import heard from '../../assets/heard.png'
+import styled from "styled-components";
 
-const Container =styled.div`
+export const Container =styled.div`
 border: 1px solid black;
 max-width: 350px;
 max-height: 420px;
@@ -14,7 +11,7 @@ margin-top: 40px;
   background: wheat
  }
 `
-const ImageElement = styled.img`
+export const ImageElement = styled.img`
 margin-top: 2%;
 display: flex;
 justify-content: center;
@@ -25,7 +22,7 @@ align-items: center;
   border-radius: 10%;
   
 `
-const TitleElement = styled.h3`
+export const TitleElement = styled.h3`
   text-align: left;
   padding-top: 5px;
   font-size: 17px;
@@ -33,43 +30,43 @@ const TitleElement = styled.h3`
   height: 10%;
   cursor: pointer;
 `
-const PElement = styled.p`
+export const PElement = styled.p`
   text-align: left;
   color: gray;
   height: 5%;
   letter-spacing: 0.1rem;
 `
-const ContainerRatingPrice = styled.div`
+export const ContainerRatingPrice = styled.div`
  height: 10%;
   display: flex;
   padding-top: 15%;
   flex-direction: column;
 `
 
-const Price = styled.p`
+export const Price = styled.p`
 height: 10%;
 display: flex;
   font-size: 30px;
   color: #2F80ED;
 `
-const Piece = styled.p`
+export const Piece = styled.p`
   font-size: 17px;
   display: flex;
   justify-content: center;
   align-items: center;
   
 `
-const Rating = styled.p`
- height: ;
+export const Rating = styled.p`
+ height: 5%;
   padding-top: 3%;
   text-align: left;
   color: #56CCF2;
   
 `
-const ContainerForItems = styled.div`
+export const ContainerForItems = styled.div`
   padding-left: 2%;
 `
-const ImageElementContainer = styled.div`
+export const ImageElementContainer = styled.div`
   display: flex;
   position: relative;
   justify-content: center;
@@ -78,7 +75,7 @@ const ImageElementContainer = styled.div`
  
 `
 
-const IconHeard = styled.img`
+export const IconHeard = styled.img`
 display: flex;
 position: absolute;
 top: 20px;
@@ -93,7 +90,7 @@ cursor: pointer;
   background: white
  }
 `
-const IconStar = styled.img`
+export const IconStar = styled.img`
   display: flex;
 position: absolute;
 top: 20px;
@@ -108,31 +105,3 @@ cursor: pointer;
   background: wheat
  }
 `
-
-
-
-const SpecialElement = ({item}) => {
-  return (
-    <Container>
-<ImageElementContainer>
-        <ImageElement src={item.image} />
-        
-        <IconStar src={star}/>
-        <IconHeard src={heard} />
-
-        </ImageElementContainer>
-<ContainerForItems>
-        <TitleElement>{item.title}</TitleElement>
-         <PElement>{item.category}</PElement>
-         <ContainerRatingPrice>
-         <Price>${item.price}/<Piece>1 piece</Piece></Price>
-         <Rating>Rating: {item.rating.rate}</Rating>
-         </ContainerRatingPrice>
-         </ContainerForItems>
-         </Container>
-  )
-}
-
-
-//<p>{item.rating.rate}</p>
-export default SpecialElement

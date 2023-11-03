@@ -13,69 +13,8 @@ import '@splidejs/react-splide/css/core';
 import people from '../../assets/Ellipse 6.png'
 import peopletwo from '../../assets/Ellipse 6 (1).png'
 import styled from 'styled-components';
+import { Reviews,ContainerImg,ButtonSlider,DivButton,ComentAuth, Container,ImageSlider, SliderContainerItem, SliderDiv, SliderText } from './SliderStyled';
 
-const Container = styled.div`
-margin-top: 100px;
-width: 100%;
-height: 100%;
-padding-top: 0px;
-`
-
-const SliderDiv = styled.div`
-
-display: flex;
-justify-content: center;
-gap: 10px;
-flex-wrap: wrap;
-`
-const SliderContainerItem = styled.div`
-    
-`
-
-const ContainerImg = styled.div`
-padding-bottom: 10px;
-text-align: center;
-    
-`
-const ImageSlider = styled.img`
-    
-`
-const Reviews = styled.h2`
-text-align: center;
-margin-bottom: 50px;
-font-size: 30px;
-`
-
-const SliderText = styled.div`
-width: 350px;
-height: 150px;
-text-align: left;
-letter-spacing: 0.1rem;
-line-height: 1.5rem;
-`
-const ComentAuth = styled.p`
-text-align: left;
-`
-const DivButton = styled.div`
-  display: flex;
-  justify-content: center;
-`
-
-const ButtonSlider = styled.button`
-    width: 275px;
-    height: 50px;
-  
-    border-radius: 20px;
-    background: #EE685F;
-    border: none;
-    color: white;
-    letter-spacing: 0.2rem;
-    cursor: pointer;
-    &:hover{
-        background: wheat;
-    }
-    
-`
 const SliderSection = () => {
   return (
     <Container>

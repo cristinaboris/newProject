@@ -13,6 +13,10 @@ import {  BrowserRouter, Routes, Route } from 'react-router-dom';
 import User from './components/User'
 import MainPage from './page/MainPage';
 import Deals from './page/Deals';
+import Card from './page/Card/Card';
+import Filter from './components/Filter';
+import Form from './components/Feedback/Form';
+import Cart from './components/Cart/Cart';
 //import Auth0ProviderWithHistory from './auth0Provider';
 
 const GlobalStyles = createGlobalStyle`
@@ -35,6 +39,11 @@ function App() {
     <Routes >
       <Route element={<MainPage/>} path='/'/>
       <Route element={<Deals/>} path='deals'/>
+      <Route element={<User/>} path='/user'/>
+      <Route element={<Card/>} path='/deals/:id'/>
+      <Route element={<Filter/>} path='/category'/>
+      <Route element={<Form/>} path='/feedback'/>
+      <Route element={<Cart/>} path='/cart'/>
     </Routes>
     <Footer/>
      </BrowserRouter>

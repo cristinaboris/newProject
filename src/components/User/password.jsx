@@ -1,0 +1,1 @@
+export const password = {name: 'Kris', email: '12345678'}

@@ -4,36 +4,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import * as types from '../../redux/actionTypes'
 import { useEffect } from "react";
 import SpecialElement from "./SpecialElement";
+import {TitleSpecialContainer, TitleSpecial,Container,ContainerItem,} from './SpecialSectioStyled'
 
 
-const Container = styled.div`
-margin-top: 100px;
-  width: 100%;
-  height: 100%;
-`
-
-const TitleSpecialContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-`
-const TitleSpecial = styled.h1`
-`
-const ButtonNews = styled.button`
-  
-`
-const Pad = styled.p`
-  color: black;
-`
-const ContainerItem =styled.div`
-display: flex;
-gap: 25px;
-background: white;
-border: none;
-flex-wrap: wrap;
-justify-content: center;
-`
 const SpecialSection = () => {
 const dispatch = useDispatch()
 
