@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import star from '../../assets/Star 1.png'
 import heard from '../../assets/heard.png'
 import { Link } from 'react-router-dom'
-import {Container,Price,Rating,ContainerRatingPrice,PElement,TitleElement,ImageElement,IconStar,IconHeard, ImageElementContainer, ContainerForItems,} from './SpecialSectionTwoStyled'
+import {Container,Price,Rating,Piece,ContainerRatingPrice,PElement,TitleElement,ImageElement,IconStar,IconHeard, ImageElementContainer, ContainerForItems,} from './SpecialSectionTwoStyled'
 
 
 
