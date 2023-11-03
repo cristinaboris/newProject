@@ -137,7 +137,7 @@ border-top-right-radius: 34px;
 padding: 20px;
 width: 100%;
 border: none;
-font-size: 25px;
+font-size: 26px;
 `
 const SectionBlock = styled.div`
   display: flex;
