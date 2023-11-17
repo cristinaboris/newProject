@@ -7,16 +7,18 @@ import SliderSection from '../../components/SliderSection'
 import RecentSection from '../../components/RecentSection'
 import Footer from '../../components/Footer'
 
+
 const MainPage = () => {
+
   return (
     <div>
-   
+ 
      <Banner/>
      <ChooseSection/>
      <SpecialSection/>
      <SliderSection/>
      <RecentSection/>
-    
+   
     </div>
   )
 }
