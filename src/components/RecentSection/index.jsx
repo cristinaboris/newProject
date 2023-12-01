@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import RecentSectionItem from './RecentSectionItem'
 import {Container, TitleRecent, ContainerRecentItem, ContainerSagaElement} from './RecentSectionStyled'
-
+import SpecialSectionTwo from "../../components/SpecialSection/SpecialSectionTwo";
 const RecentSection = () => {
     const {items} = useSelector((state) => state.data)
 
@@ -18,7 +18,7 @@ const RecentSection = () => {
 {
 itemsRecent.map((item,i) => (
     
-        <RecentSectionItem item={item}/>
+        <SpecialSectionTwo item={item}/>
    
 ))
 }</ContainerSagaElement>

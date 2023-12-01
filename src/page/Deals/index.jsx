@@ -6,9 +6,11 @@ import where from '../../assets/icon2.png'
 import where2 from '../../assets/icon (1).png'
 import Button from '../../assets/button.png'
 import filter from '../../assets/icon4.png'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import SpecialSectionTwo from "../../components/SpecialSection/SpecialSectionTwo";
 import ReactPaginate from 'react-paginate';
+import { sortPrice } from '../../redux/actions';
+
 
 const Container = styled.div`
 width: 100%;
@@ -194,12 +196,20 @@ const ContainerpAGINATION = styled.div`
 const Deals = () => {
 
   
+const dispatch = useDispatch();
 
+
+//by price
+const sortByPrice = () => {
+  dispatch(sortPrice())
+}
 const itemClickHandle  = (e) => {
   setValue(e.target.textContent)
   setOpen(!open)
 }
  const {items} = useSelector((state) => state.data)   
+ const {sortPrices} = useSelector((state) => state.data)   
+
 
  const [value, setValue] = useState('') 
  const [open, setOpen] = useState(true)
@@ -207,25 +217,30 @@ const itemClickHandle  = (e) => {
 const inputClick = () => {
   setOpen(true)
 }
+
 console.log(items)
+
 
  const filterItems = items.filter(item => {
 return item.title.toLowerCase().includes(value.toLocaleLowerCase())
- 
 })
+
+
+
 const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = filterItems.slice(indexOfFirstItem, indexOfLastItem);
-//sorting
-const sorting = () => {
 
-}
+  const [sortingItem, setSorting] = useState(filterItems)
 
-
- 
-
+  //sorting
+const sortByPrices = () =>{
+  const filtering = filterItems.sort((a,b) => a.price - b.price)
+  setSorting(filtering)
+  console.log(filtering, '!!!!!!!')
+} 
     return (
       <Container>
        <MainTitle><h1>Last Minute Deals</h1></MainTitle>
@@ -238,7 +253,7 @@ onClick={inputClick}
 />
 <Uling>
  { value && open?
-  filterItems.map((item,i) => {
+  sortingItem.map((item,i) => {
     return (
       <Ling onClick={itemClickHandle}>{item.title}</Ling>
     )
@@ -262,12 +277,10 @@ onClick={inputClick}
 <form>
 <label htmlFor='sort'>
 </label>
-<select name="sort" id="sort" onClick={sorting}>
-<option value="lower">Price(lower)</option>
-<option value="highest">Price(highest)</option>
+<select name="sort" id="sort"  >
+<option value="all">All</option>
+<option onClick={sortByPrices} value="lower">Price(lower)</option>
 <option value="rating">Rating</option>
-<option value="a-z">A-Z</option>
-
 </select>
 </form>
 
@@ -289,6 +302,7 @@ onClick={inputClick}
           ))
           
         }</ContainerItem>
+
 
 </ContainerDeals>
 <ContainerpAGINATION>

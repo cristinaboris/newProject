@@ -17,10 +17,7 @@ const response = yield call(getItems)
  //   yield put({ type: ADD_TO_CART, payload: action.payload });
 //}
 function* addToCartSaga(action) {
-    // Можно добавить здесь логику для обработки добавления товара в корзину
-    // Например, отправка запроса на сервер, обновление данных и т.д.
-  
-    // В данном примере, просто отправляем действие, чтобы обновить состояние корзины
+
     yield put({ type: ADD_TO_CART, payload: action.payload });
   }
 

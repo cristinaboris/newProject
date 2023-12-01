@@ -5,7 +5,7 @@ import * as types from '../../redux/actionTypes'
 import { useEffect } from "react";
 import SpecialElement from "./SpecialElement";
 import {TitleSpecialContainer, TitleSpecial,Container,ContainerItem,} from './SpecialSectioStyled'
-
+import SpecialSectionTwo from "../../components/SpecialSection/SpecialSectionTwo";
 
 const SpecialSection = () => {
 const dispatch = useDispatch()
@@ -34,7 +34,7 @@ console.log(slicing)
       <ContainerItem>
         {
           slicing.map((item,i) => (
-            <SpecialElement item={item}/>
+            <SpecialSectionTwo item={item}/>
             
           ))
           

@@ -5,6 +5,7 @@ const initialState = {
     items: [],
     card: [],
     loading: false,
+    sortPrices: []
 }
 
 const itemsReducer = (state = initialState, action) => {
@@ -42,6 +43,17 @@ switch(action.type){
                 ...state,
                 card: []
             }
+        case types.SORT_BY_PRICE:
+            return{
+            ...state,
+            items: state.items.slice().sort((a,b)=> b.price - a.price)
+            }
+        case types.SORT_BY_RATING:
+            return{
+                ...state,
+            items: state.items.slice().sort((a, b) => b.rating.rate - a.rating.rate),
+            }
+            
             default: return state;
 }}
 
