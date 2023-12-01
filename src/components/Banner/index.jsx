@@ -18,7 +18,7 @@ const Banner = () => {
 
  const Container = styled(Box)(({theme}) => ({
   width: '95%',
-  height: '80vh',
+  height: '100%',
   margin: '0 auto',
   display: 'flex',
   flexDirection:'column',
@@ -62,20 +62,45 @@ marginTop: 22,
 
 })) 
 
+const DivInput = styled(Box)(({theme}) =>({
+display: 'flex',
+justifyContent: 'center'
+}))
+
 const InputBox = styled(Box)(({theme}) => ({
 display: 'flex',
-left: '30%',
+height:'40px',
 position: 'absolute',
 bottom: 0,
-
+bottom: '-15px',
 width: 500,
+maxHeight: 70,
+height: 60,
 maxWidth: '100%',
-//[theme.breakpoints.down('md')]: {
- // width: 500,
-//},
+//background: 'white',
+
+
 
 }))
 
+const MainInputLeft = styled('input')(({theme})=> ({
+  width: '100%',
+ borderTopLeftRadius: '40px',
+ borderBottomLeftRadius: '40px',
+ border: '2px solid ',
+ width: '100%',
+ background: 'white',
+ padding: '10px'
+}))
+
+const MainInputRight = styled('input')(({theme})=> ({
+  borderTopRightRadius: '40px',
+  borderBottomRightRadius: '40px',
+  border: '2px solid ',
+  width: '100%',
+  background: 'white',
+  padding: '10px'
+}))
   return (
     
 <Container>
@@ -91,10 +116,14 @@ maxWidth: '100%',
   </LittleText>
 </BoxContainerTitle>
 </Box>
+
+
+<DivInput>
 <InputBox>
-<TextField id="outlined-basic" fullWidth label="Outlined" variant="outlined" />
-<TextField id="outlined-basic" fullWidth label="Outlined" variant="outlined" />
+<MainInputLeft placeholder='Where' md={{fontWeight: 15}} id="outlined-basic" fullWidth label="Outlined" variant="outlined" />
+<MainInputRight placeholder='When' id="outlined-basic" fullWidth label="Outlined" variant="outlined" />
 </InputBox>
+</DivInput>
 </ContainerBox>
 </Container>
   )

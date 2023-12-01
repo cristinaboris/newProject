@@ -32,6 +32,7 @@ console.log(slicing)
       </TitleSpecialContainer>
     
       <ContainerItem>
+        
         {
           slicing.map((item,i) => (
             <SpecialSectionTwo item={item}/>

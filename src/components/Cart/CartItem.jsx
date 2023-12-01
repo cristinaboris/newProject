@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 import {removeCart} from '../../redux/actions'
 import { Left, Right, Center, Container, ImageRight, Cancel } from './CartStyled'
+import DialogWindow from './DialogWindow'
 
 const CartItem = ({item}) => {
 
@@ -11,6 +12,9 @@ const CartItem = ({item}) => {
 const removeItem = (productId)=> {
     dispatch(removeCart(productId))
 }
+
+
+
 
   return (
     <Container key={item.id}>
@@ -23,6 +27,7 @@ const removeItem = (productId)=> {
 
     </Right>
     <Center><Cancel onClick={()=> removeItem(item.id)}>X</Cancel></Center>
+    <DialogWindow />
     </Container>
   )
 }

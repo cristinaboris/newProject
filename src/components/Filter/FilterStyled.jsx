@@ -31,8 +31,8 @@ export const Image = styled.img`
 `
 export const ContainerItem =styled.div`
 display: flex;
-gap: 25px;
+gap: 5px;
 background: white;
 border: none;
 flex-wrap: wrap;
-justify-content: center;`
+justify-content: space-between;`
