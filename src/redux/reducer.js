@@ -5,7 +5,8 @@ const initialState = {
     items: [],
     card: [],
     loading: false,
-    sortPrices: []
+    sortPrices: [],
+    
 }
 
 const itemsReducer = (state = initialState, action) => {
@@ -43,16 +44,18 @@ switch(action.type){
                 ...state,
                 card: []
             }
-        case types.SORT_BY_PRICE:
-            return{
-            ...state,
-            items: state.items.slice().sort((a,b)=> b.price - a.price)
-            }
-        case types.SORT_BY_RATING:
+       
+        case types.INCREASED_QUANTITY:
             return{
                 ...state,
-            items: state.items.slice().sort((a, b) => b.rating.rate - a.rating.rate),
+                card: state.card.map(item => 
+                item.id === action.payload ? {...item, quantity: item.quantity + 1} : item)
             }
+        case types.DECREASED_QUANTITY:
+            return {
+                ...state,
+                card: state.card.map( item => item.id === action.payload ? {...item, quantity: Math.max(1, item.quantity - 1)} : item)
+            }   
             
             default: return state;
 }}

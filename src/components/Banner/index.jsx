@@ -7,6 +7,11 @@ import Button from '../../assets/button.png'
 import {Container,WhereRight,ContainerWhen,BannerImg,BannerText,MainText,ButtonDiv,LittleText, WhereSectionGray,SectionBlock, WhereLeft,ImageWhere,TextWhere, WhereTextSection,ButtonImg} from './BannerStyled'
 import { Box, Typography, useMediaQuery } from '@mui/material';
 import TextField from '@mui/material/TextField';
+import Input from '@mui/material/Input';
+import InputLabel from '@mui/material/InputLabel';
+import InputAdornment from '@mui/material/InputAdornment';
+import FormControl from '@mui/material/FormControl';
+import AccountCircle from '@mui/icons-material/AccountCircle';
 //import { makeStyles } from "@material-ui/core/styles";
 
 
@@ -83,7 +88,7 @@ maxWidth: '100%',
 
 }))
 
-const MainInputLeft = styled('input')(({theme})=> ({
+const MainInputLeft = styled(Box)(({theme})=> ({
   width: '100%',
  borderTopLeftRadius: '40px',
  borderBottomLeftRadius: '40px',
@@ -93,7 +98,7 @@ const MainInputLeft = styled('input')(({theme})=> ({
  padding: '10px'
 }))
 
-const MainInputRight = styled('input')(({theme})=> ({
+const MainInputRight = styled(Box)(({theme})=> ({
   borderTopRightRadius: '40px',
   borderBottomRightRadius: '40px',
   border: '2px solid ',
@@ -101,6 +106,12 @@ const MainInputRight = styled('input')(({theme})=> ({
   background: 'white',
   padding: '10px'
 }))
+
+const WhereImage = styled('img')(({theme}) => ({
+  width: '30px',
+  height: '30px',
+  padding: '5px'
+  }))
   return (
     
 <Container>
@@ -120,8 +131,15 @@ const MainInputRight = styled('input')(({theme})=> ({
 
 <DivInput>
 <InputBox>
-<MainInputLeft placeholder='Where' md={{fontWeight: 15}} id="outlined-basic" fullWidth label="Outlined" variant="outlined" />
-<MainInputRight placeholder='When' id="outlined-basic" fullWidth label="Outlined" variant="outlined" />
+<MainInputLeft sx={{ display: 'flex', alignItems: 'flex-end' }}>
+        <WhereImage src={where}  />
+        <TextField id="input-with-sx" label="Where" variant="standard" />
+      </MainInputLeft>
+   
+      <MainInputRight sx={{ display: 'flex', alignItems: 'flex-end' }}>
+        <WhereImage src={where2}  />
+        <TextField id="input-with-sx" label="When" variant="standard" />
+      </MainInputRight>
 </InputBox>
 </DivInput>
 </ContainerBox>
@@ -130,6 +148,10 @@ const MainInputRight = styled('input')(({theme})=> ({
 }
 
 export default Banner
+//MainInputLeft placeholder='Where' md={{fontWeight: 15}} id="outlined-basic" fullWidth label="Outlined" variant="outlined" />
+
+
+
 
 
 

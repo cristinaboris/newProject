@@ -23,16 +23,15 @@ const Home = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const toggleDrawer = (open) => (event) => {
-    if (
-      event.type === 'keydown' &&
-      ((event.key === 'Tab' && !event.shiftKey) || event.key === 'Escape')
-    ) {
-      return;
-    }
+  
     setDrawerOpen(open);
   };
 
-  const menuItems = [{name:'Home', ref:'/'}, {name: 'Last Minute Deals', ref:'/deals'}, {name:'Category', ref:'/category'}, {name:'Contacts', ref:'/contct'}];
+  const menuItems = [
+  {name:'Home', ref:'/'}, 
+  {name: 'Last Minute Deals',ref:'/deals'},
+  {name:'Category', ref:'/category'}, 
+  {name:'Contacts', ref:'/contct'}];
 
  const NavLinks = styled(Typography)(({theme})=> ({
   fontSize: '14px',

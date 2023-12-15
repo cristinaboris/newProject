@@ -9,7 +9,6 @@ import filter from '../../assets/icon4.png'
 import { useDispatch, useSelector } from 'react-redux';
 import SpecialSectionTwo from "../../components/SpecialSection/SpecialSectionTwo";
 import ReactPaginate from 'react-paginate';
-import { sortPrice } from '../../redux/actions';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -207,8 +206,9 @@ const dispatch = useDispatch();
 
 
 
- const {items} = useSelector((state) => state.data)   
- const {sortPrices} = useSelector((state) => state.data)   
+ const {items} = useSelector((state) => state.data) 
+ 
+ //const {sortPrices} = useSelector((state) => state.data)   
 
 
  const [value, setValue] = useState('') 
@@ -219,19 +219,25 @@ const inputClick = () => {
 }
 
 
+
+
+
  const filterItems = items.filter(item => {
 return item.title.toLowerCase().includes(value.toLocaleLowerCase())
 })
 
-///
+
+
+
 const [sort, setSort] = React.useState('');
 
 const handleChange = (event) => {
   setSort(event.target.value);
 };
 //
+
 useEffect(() => {
-  
+  console.log(filterItems)
 })
 
 const [currentPage, setCurrentPage] = useState(1);
@@ -245,27 +251,27 @@ const [sortingItem, setSorting] = useState(filterItems)
 const allElement = () => {
   setSorting(filterItems)
  
-  console.log(filtering, '!!!!!!!')
+  console.log(filterItems, '!!!!!!!')
 }
 
 const sortByPricesLow = () =>{
   const filtering = currentItems.sort((a,b) => a.price - b.price)
   setSorting(filtering)
  
-  console.log(filtering, '!!!!!!!')
+  
 } 
 
 const sortByPricesHigh = () =>{
   const filteringHigh = currentItems.sort((a,b) => b.price - a.price)
   setSorting(filteringHigh)
   
-  console.log(filteringHigh, '!!!!!!!')
+  
 } 
 const sortRating = () =>{
   const filteringHigh = currentItems.sort((a,b) => b.rating.rate - a.rating.rate)
   setSorting(filteringHigh)
   
-  console.log(filteringHigh, '!!!!!!!')
+ 
 } 
     return (
       <Container>
@@ -273,9 +279,9 @@ const sortRating = () =>{
        <ContainerFinder>
        <SectionBlock>
 
-<Searcing type="text" value={value} placeholder='Searching for...'
+<Searcing type="text"  placeholder='Searching for...'
 onChange={(event) => setValue(event.target.value)} 
-onClick={inputClick}
+onClick={inputClick} value={value}
 />
 
 </SectionBlock>
@@ -321,13 +327,9 @@ onClick={inputClick}
  </ContainerFilterIcon>
 
  <ContainerItem>
-        {value && open?
+        {
           sortingItem.map((item,i) => (
             <SpecialSectionTwo item={item}/>
-            
-          )) : sortingItem.map((item,i) => (
-            <SpecialSectionTwo item={item}/>
-            
           ))
           
         }</ContainerItem>

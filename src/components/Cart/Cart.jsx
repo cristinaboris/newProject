@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import CartItem from './CartItem'
 
+
 const Container = styled.div`
   padding-top: 30px;
   width: 40%;

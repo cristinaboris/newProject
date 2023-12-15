@@ -15,7 +15,7 @@ import Typography from '@mui/material/Typography';
 
 const SpecialSectionTwo = ({item}) => {
 
-  //scroll to top!!!!!!!!!
+ 
   
  const toTop = () => {
   (window.scrollY === 0) 
@@ -52,22 +52,5 @@ const SpecialSectionTwo = ({item}) => {
 }
 
 
-//<p>{item.rating.rate}</p>
-export default SpecialSectionTwo
-//<Container>
-//<ImageElementContainer>
-   //     <ImageElement src={item.image} />
-        
-  //      <IconStar src={star}/>
-  //      <IconHeard src={heard} />
 
- ///       </ImageElementContainer>
-//<ContainerForItems>
-  //      <TitleElement>{item.title}</TitleElement>
-  //       <PElement>{item.category}</PElement>
-  //       <ContainerRatingPrice>
-  //       <Price>${item.price}/<Piece>1 piece</Piece></Price>
-   //      <Rating>Rating: {item.rating.rate}</Rating>
-  //       </ContainerRatingPrice>
- //        </ContainerForItems>
- //        </Container>
+export default SpecialSectionTwo
