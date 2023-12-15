@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+
 export const Container = styled.div`
 padding-top:100px;
 width: 80%;
@@ -6,7 +7,6 @@ min-height: 100vh;
 height: 100%;
 margin: 0 auto;
 `
-
 export const ContainerSide = styled.div`
     display: flex;
     justify-content: space-between;

@@ -1,24 +1,18 @@
 import React from 'react'
-import Home from '../../components/Home'
 import Banner from '../../components/Banner'
 import ChooseSection from '../../components/ChooseSection'
-import SpecialSection from '../../components/SpecialSection'
-import SliderSection from '../../components/SliderSection'
 import RecentSection from '../../components/RecentSection'
-import Footer from '../../components/Footer'
-
+import SliderSection from '../../components/SliderSection'
+import SpecialSection from '../../components/SpecialSection'
 
 const MainPage = () => {
-
   return (
     <div>
- 
-     <Banner/>
-     <ChooseSection/>
-     <SpecialSection/>
-     <SliderSection/>
-     <RecentSection/>
-   
+      <Banner/>
+      <ChooseSection/>
+      <SpecialSection/>
+      <SliderSection/>
+      <RecentSection/>
     </div>
   )
 }
