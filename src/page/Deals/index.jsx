@@ -9,8 +9,11 @@ import filter from '../../assets/icon4.png'
 import { useDispatch, useSelector } from 'react-redux';
 import SpecialSectionTwo from "../../components/SpecialSection/SpecialSectionTwo";
 import ReactPaginate from 'react-paginate';
-import { sortPrice } from '../../redux/actions';
-
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import Box from '@mui/material/Box';
 
 const Container = styled.div`
 width: 100%;
@@ -200,15 +203,12 @@ const dispatch = useDispatch();
 
 
 //by price
-const sortByPrice = () => {
-  dispatch(sortPrice())
-}
-const itemClickHandle  = (e) => {
-  setValue(e.target.textContent)
-  setOpen(!open)
-}
- const {items} = useSelector((state) => state.data)   
- const {sortPrices} = useSelector((state) => state.data)   
+
+
+
+ const {items} = useSelector((state) => state.data) 
+ 
+ //const {sortPrices} = useSelector((state) => state.data)   
 
 
  const [value, setValue] = useState('') 
@@ -218,7 +218,8 @@ const inputClick = () => {
   setOpen(true)
 }
 
-console.log(items)
+
+
 
 
  const filterItems = items.filter(item => {
@@ -227,19 +228,50 @@ return item.title.toLowerCase().includes(value.toLocaleLowerCase())
 
 
 
+
+const [sort, setSort] = React.useState('');
+
+const handleChange = (event) => {
+  setSort(event.target.value);
+};
+//
+
+useEffect(() => {
+  console.log(filterItems)
+})
+
 const [currentPage, setCurrentPage] = useState(1);
+const [sortingItem, setSorting] = useState(filterItems)
   const itemsPerPage = 6;
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = filterItems.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = sortingItem.slice(indexOfFirstItem, indexOfLastItem);
 
-  const [sortingItem, setSorting] = useState(filterItems)
 
-  //sorting
-const sortByPrices = () =>{
-  const filtering = filterItems.sort((a,b) => a.price - b.price)
+const allElement = () => {
+  setSorting(filterItems)
+ 
+  console.log(filterItems, '!!!!!!!')
+}
+
+const sortByPricesLow = () =>{
+  const filtering = currentItems.sort((a,b) => a.price - b.price)
   setSorting(filtering)
-  console.log(filtering, '!!!!!!!')
+ 
+  
+} 
+
+const sortByPricesHigh = () =>{
+  const filteringHigh = currentItems.sort((a,b) => b.price - a.price)
+  setSorting(filteringHigh)
+  
+  
+} 
+const sortRating = () =>{
+  const filteringHigh = currentItems.sort((a,b) => b.rating.rate - a.rating.rate)
+  setSorting(filteringHigh)
+  
+ 
 } 
     return (
       <Container>
@@ -247,20 +279,11 @@ const sortByPrices = () =>{
        <ContainerFinder>
        <SectionBlock>
 
-<Searcing type="text" value={value} placeholder='Searching for...'
+<Searcing type="text"  placeholder='Searching for...'
 onChange={(event) => setValue(event.target.value)} 
-onClick={inputClick}
+onClick={inputClick} value={value}
 />
-<Uling>
- { value && open?
-  sortingItem.map((item,i) => {
-    return (
-      <Ling onClick={itemClickHandle}>{item.title}</Ling>
-    )
-  }) : null
- }
 
-</Uling>
 </SectionBlock>
 </ContainerFinder>
 
@@ -274,15 +297,24 @@ onClick={inputClick}
 <FilterImg src={filter}/>
 
 
-<form>
-<label htmlFor='sort'>
-</label>
-<select name="sort" id="sort"  >
-<option value="all">All</option>
-<option onClick={sortByPrices} value="lower">Price(lower)</option>
-<option value="rating">Rating</option>
-</select>
-</form>
+<Box sx={{ minWidth: 120 }}>
+      <FormControl fullWidth>
+        <InputLabel id="demo-simple-select-label">Filter</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={sort}
+          label='filter'
+          onChange={handleChange}
+        >
+  
+          <MenuItem onClick={sortByPricesLow} value={10}>Price(hight)</MenuItem>
+          <MenuItem onClick={sortByPricesHigh} value={20}>Price(low)</MenuItem>
+          <MenuItem onClick={sortRating} value={30}>Rating</MenuItem>
+          <MenuItem onClick={allElement} value={40}>All</MenuItem>
+        </Select>
+      </FormControl>
+    </Box>
 
 
 <Pfilter>Filter</Pfilter>
@@ -296,9 +328,8 @@ onClick={inputClick}
 
  <ContainerItem>
         {
-          currentItems.map((item,i) => (
+          sortingItem.map((item,i) => (
             <SpecialSectionTwo item={item}/>
-            
           ))
           
         }</ContainerItem>

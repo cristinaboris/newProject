@@ -11,13 +11,14 @@ import { Ling, Containter, Uling, Image ,ContainerItem} from './FilterStyled'
 const Filter = () => {
 
 const {items} = useSelector((state) => state.data)    
-const [filter, setFilter] = useState([])
+const [filter, setFilter] = useState(items)
 
 const filterProduct = (cat) => {
     const updatedList = items.filter((x) => x.category === cat)
     setFilter(updatedList)
     console.log(updatedList)
 }
+
 
 
 console.log(items, 'items')
