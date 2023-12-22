@@ -1,58 +1,41 @@
-import React from 'react'
-import { useDispatch } from 'react-redux'
-import styled from 'styled-components'
-import { quanityCart, decreaseQuantity} from '../../redux/actions'
-import { Left, Right, Center, Container, ImageRight, Cancel } from './CartStyled'
-import DialogWindow from './DialogWindow'
 import { useState } from 'react'
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux'
+import { decreaseQuantity, quanityCart, removeCart } from '../../redux/actions'
+import { Cancel, Center, Container, ImageRight, Left, Right } from './CartStyled'
+import DialogWindow from './DialogWindow'
 
-const CartItem = ({item, totalPrice, totalQuantity}) => {
+//TODO: remove totalPrice, totalQuantity
 
- const dispatch = useDispatch()
+const CartItem = ({ item, totalPrice, totalQuantity }) => {
+  const [isShowDialog, setDialog] = useState(false)
+  const dispatch = useDispatch()
 
-
-
-const increse = (id) => {
-  dispatch(decreaseQuantity(id))
-}
-
-const descrese = (id) => {
-  dispatch(quanityCart(id))
-}
-const [dialog,setDialog] = useState({
-  isLoading: false
-})
-
-
-//emoveItem(item.id) id!!!
+  const handleClickModal = (option) => {
+    if (option) {
+      dispatch(removeCart(item.id))
+    }
+    setDialog(false)
+  }
 
   return (
-    <Container key={item.id}>
-    <Left>
-<ImageRight src={item.image}/>
-    </Left>
-    <Right>
-   <h3>{item.title}</h3> 
- <h4>Price: {item.price}</h4>
-<button onClick={() => quanityCart(item.id)}>+</button>
-<button onClick={() => descrese(item.id)}>-</button>
-
-<p>{totalPrice}</p>
-<p>{totalQuantity}</p>
-<button>{item.length}</button>
-    </Right>
-   
-    <Center><Cancel onClick={()=> setDialog({isLoading:true})}>X</Cancel></Center>
-
-   {
-    dialog.isLoading && <DialogWindow id={item.id} dialog={dialog} setDialog={setDialog}/>
-   }
-   
+    <Container key={ item.id }>
+      <Left>
+        <ImageRight src={ item.image }/>
+      </Left>
+      <Right>
+        <h3>{ item.title }</h3>
+        <h4>Price: { item.price }</h4>
+        <button onClick={ () => dispatch(quanityCart(item.id)) }>+</button>
+        <button onClick={ () => dispatch(decreaseQuantity(item.id)) }>-</button>
+        <p>totalPrice: { item.price * item.quantity }</p>
+        <p>Total quantity: { item.quantity }</p>
+      </Right>
+      <Center>
+        <Cancel onClick={ () => setDialog(true) }>X</Cancel>
+      </Center>
+      { isShowDialog && <DialogWindow handleClick={ handleClickModal }/> }
     </Container>
-    
   )
-  
 }
 
 export default CartItem
