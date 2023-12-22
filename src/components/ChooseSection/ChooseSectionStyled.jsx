@@ -16,10 +16,13 @@ export const ContainerForTitle = styled.div`
     align-items: center;
     padding-top: 10%;
     flex-direction: column;
-    width: 500px;
+    width: 100%;
     
 `
 export const TitleBold = styled.h1`
+ @media (max-width: 768px) {
+    
+  }
     
 `
 export const TextChoose = styled.p`
@@ -27,6 +30,7 @@ export const TextChoose = styled.p`
     letter-spacing: 1px;
     text-align: center;
     line-height: 150%;
+  
 ` 
 export const ContainerItemsChosee = styled.div`
     display: flex;

@@ -1,25 +1,31 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
-import {removeCart, quanityCart, decreaseQuantity} from '../../redux/actions'
+import { quanityCart, decreaseQuantity} from '../../redux/actions'
 import { Left, Right, Center, Container, ImageRight, Cancel } from './CartStyled'
 import DialogWindow from './DialogWindow'
+import { useState } from 'react'
+import { connect } from 'react-redux';
 
-const CartItem = ({item}) => {
+const CartItem = ({item, totalPrice, totalQuantity}) => {
 
  const dispatch = useDispatch()
 
-const removeItem = (productId)=> {
-    dispatch(removeCart(productId))
+
+
+const increse = (id) => {
+  dispatch(decreaseQuantity(id))
 }
 
-
+const descrese = (id) => {
+  dispatch(quanityCart(id))
+}
 const [dialog,setDialog] = useState({
   isLoading: false
 })
 
 
-
+//emoveItem(item.id) id!!!
 
   return (
     <Container key={item.id}>
@@ -30,17 +36,23 @@ const [dialog,setDialog] = useState({
    <h3>{item.title}</h3> 
  <h4>Price: {item.price}</h4>
 <button onClick={() => quanityCart(item.id)}>+</button>
-<button onClick={() => decreaseQuantity(item.id)}>-</button>
+<button onClick={() => descrese(item.id)}>-</button>
+
+<p>{totalPrice}</p>
+<p>{totalQuantity}</p>
 <button>{item.length}</button>
     </Right>
-    <Center><Cancel onClick={()=> removeItem(item.id)}>X</Cancel></Center>
-    
+   
+    <Center><Cancel onClick={()=> setDialog({isLoading:true})}>X</Cancel></Center>
+
    {
-    dialog.isLoading && <DialogWindow />
+    dialog.isLoading && <DialogWindow id={item.id} dialog={dialog} setDialog={setDialog}/>
    }
    
     </Container>
+    
   )
+  
 }
 
 export default CartItem

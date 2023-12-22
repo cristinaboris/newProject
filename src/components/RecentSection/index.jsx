@@ -18,7 +18,7 @@ const RecentSection = () => {
 {
 itemsRecent.map((item,i) => (
     
-        <SpecialSectionTwo item={item}/>
+        <SpecialSectionTwo key={i} item={item}/>
    
 ))
 }</ContainerSagaElement>

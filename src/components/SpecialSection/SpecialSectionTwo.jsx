@@ -24,9 +24,8 @@ const SpecialSectionTwo = ({item}) => {
  }
  
 
-  console.log(item)
   return (
-    <Link to={`/deals/${item.id}`} onClick={() =>toTop() }>
+    <Link key={item.id} to={`/deals/${item.id}`} onClick={() =>toTop() }>
  <Card sx={{ maxWidth: '450px' ,height: 450, maxHeight: 450, width: 345}} style={{padding: 10}}>
       <CardMedia
         sx={{ minHeight: '240px' }}

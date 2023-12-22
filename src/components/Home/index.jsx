@@ -114,8 +114,8 @@ const Linking = styled(Link)(({theme}) => ({
 <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
         <List sx={{width: 400, display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
           {menuItems.map((text, index) => (
-            <Link to={text.ref}>
-            <ListItem  key={text} onClick={toggleDrawer(false)}>
+            <Link key={index} to={text.ref}>
+            <ListItem  onClick={toggleDrawer(false)}>
               <ListItemText  primary={text.name} />
             </ListItem>
             </Link>
@@ -126,12 +126,12 @@ const Linking = styled(Link)(({theme}) => ({
       </Box>
 
       <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center' , gap: '1rem'}}>
-     <NavLink variant='body2'>
+     <NavLinks variant='body2'>
      <Linking to='/cart'>Cart</Linking>
-      </NavLink>
-     <NavLink variant='body2'>
+      </NavLinks>
+     <NavLinks variant='body2'>
       <Linking to='/user'>User</Linking>
-      </NavLink>
+      </NavLinks>
       </Box>
 
     </NavbarContainer>

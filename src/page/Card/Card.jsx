@@ -32,6 +32,9 @@ const dispatch = useDispatch()
     })
 
     const {card} = useSelector((state) => state.data)
+
+    const {totalQuantity, totalPrice} = useSelector((state) => state.data)
+
     console.log(card, '111111111')
     console.log(product)
   return (

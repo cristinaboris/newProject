@@ -16,7 +16,7 @@ flex-wrap: wrap;
 gap: 10%
 `
 export const FooterSectionItem = styled.div`
-  
+  padding: 20px;
 `
 export const TitleItem = styled.h3`
   
@@ -60,9 +60,23 @@ export const LinkSectionContainer  = styled.div`
 export const SectionContainerItems = styled.div`
   display: flex;
   justify-content: space-between;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+  }
+
+
+
 `
 export const ImageFooterSection = styled.img`
+@media (max-width: 768px) {
+    width: 200px;
+    margin: 0 auto;
+    display: flex;
   
+    
+  }
+
 `
 export const  DesignBy = styled.p`
   
@@ -70,10 +84,22 @@ export const  DesignBy = styled.p`
 export const ContainerForLink = styled.div`
 display: flex;
 gap: 4px;
+@media (max-width: 768px) {
+    justify-content: center;
+    padding-top: 20px;
+  }
 
 `
 
 export const Linkl = styled.img`
   width: 100%;
   height: 100%;
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+  }
 `
