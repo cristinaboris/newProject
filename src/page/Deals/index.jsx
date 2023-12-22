@@ -201,14 +201,12 @@ const Deals = () => {
   
 const dispatch = useDispatch();
 
+useEffect(() =>{
 
-//by price
-
-
+},[])
 
  const {items} = useSelector((state) => state.data) 
- 
- //const {sortPrices} = useSelector((state) => state.data)   
+
 
 
  const [value, setValue] = useState('') 

@@ -35,7 +35,7 @@ console.log(slicing)
         
         {
           slicing.map((item,i) => (
-            <SpecialSectionTwo item={item}/>
+            <SpecialSectionTwo key={i} item={item}/>
             
           ))
           

@@ -18,12 +18,14 @@ const Cart = () => {
 
   const {card} = useSelector((state) => state.data)
 
+  const {totalQuantity, totalPrice} = useSelector((state) => state.data)
+
 
   return (
     <Container>
       {
         card.map((item,i) => (
-          <CartItem key={i} item={item}/>
+          <CartItem key={i} item={item} totalQuantity={totalQuantity}  totalPrice={totalPrice}/>
         )) 
       }
     </Container>

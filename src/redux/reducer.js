@@ -6,6 +6,8 @@ const initialState = {
     card: [],
     loading: false,
     sortPrices: [],
+    totalQuantity: 0,
+    totalPrice: 0,
     
 }
 
@@ -31,7 +33,7 @@ switch(action.type){
         case types.ADD_TO_CART:
             return{
             ...state,
-            card: [...state.card, action.payload]
+            card: [...state.card, {...action.payload ,quantity: 1 }]
             }   
         case types.REMOVE_FROM_CART:
             return{
@@ -55,8 +57,13 @@ switch(action.type){
             return {
                 ...state,
                 card: state.card.map( item => item.id === action.payload ? {...item, quantity: Math.max(1, item.quantity - 1)} : item)
-            }   
-            
+            } 
+        case  types.UPDATE_CART_INFO_SUCCESS:
+            return{
+         ...state, 
+         totalQuantity: action.payload.totalQuantity,
+         totalPrice: action.payload.totalPrice,
+            }
             default: return state;
 }}
 

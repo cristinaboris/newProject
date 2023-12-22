@@ -1,21 +1,48 @@
 import styled from "styled-components"
+import { Box, Typography, useMediaQuery } from '@mui/material';
+
+export const Container = styled(Box)(({theme}) => ({
+  width: '95%',
+  height: '100%',
+  margin: '0 auto',
+  display: 'flex',
+  flexDirection:'column',
+  position: 'relative',
+  zIndex: '0'
+
+ })) 
 
 
-export const Container = styled.div`
-  width: 95%;
-  height: 80vh;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  `
+ export const ImageBanner = styled('img')(({theme}) => ({
+  width: '100%',
+  height: '100%',
+  }))
 
-export const BannerImg = styled.img`
-  width: 100%;
-  height: 100%;
-  position: relative;
-  z-index: 0;
-  object-position: center;
-`
+
+
+ export const BoxContainerTitle = styled(Box)(({theme}) => ({
+  position: 'absolute',
+  top: '10px',
+  paddingTop: '4%',
+ paddingLeft: '4%'
+  }))
+
+  export const TextBanner = styled(Typography)(({theme}) => ({
+    textShadow: '1px 3px 2px grey',
+    width: 320,
+    fontWeight: 'bold',
+    fontSize: 20,
+    textAlign: 'left',
+    
+    }))
+
+export const LittleText = styled(Box)(({theme})=> ({
+  width: 420,
+  marginTop: 22,
+  
+  
+  }))     
+
 export const BannerText = styled.div`
   width: 380px;
   text-align: left;
@@ -30,11 +57,59 @@ export const MainText = styled.h1`
    text-shadow: 1px 3px 2px grey;
 
 `
-export const LittleText = styled.p`
-padding-top: 10px;
-letter-spacing: 1px;
-line-height: 1.2;
-`
+
+export const WhereImage = styled('img')(({theme}) => ({
+  width: '30px',
+  height: '30px',
+  padding: '5px'
+  }))
+
+export const DivInput = styled(Box)(({theme}) =>({
+  display: 'flex',
+  justifyContent: 'center',
+  
+  }))
+
+  export const InputBox = styled(Box)(({theme}) => ({
+    display: 'flex',
+    height:'40px',
+    position: 'absolute',
+    bottom: 0,
+    bottom: '-15px',
+    width: 500,
+    maxHeight: 70,
+    height: 60,
+    maxWidth: '100%',
+    //background: 'white',
+    
+    
+    
+    }))
+
+
+    export const MainInputRight = styled(Box)(({theme})=> ({
+      borderTopRightRadius: '40px',
+      borderBottomRightRadius: '40px',
+      border: '2px solid ',
+      width: '100%',
+      background: 'white',
+      padding: '10px'
+    }))
+
+    export const MainInputLeft = styled(Box)(({theme})=> ({
+      width: '100%',
+     borderTopLeftRadius: '40px',
+     borderBottomLeftRadius: '40px',
+     border: '2px solid ',
+     width: '100%',
+     background: 'white',
+     padding: '10px'
+    }))
+//export const LittleText = styled.p`
+//padding-top: 10px;
+//letter-spacing: 1px;
+//line-height: 1.2;
+//`
 export const SectionBlock = styled.div`
   display: flex;
   width: 570px;
@@ -99,3 +174,10 @@ export const ContainerWhen = styled.div`
   display: flex;
   gap: 15px;
 `
+export const ContainerBox = styled(Box)(({theme}) =>({
+  display: 'flex',
+  flexDirection: 'column',
+  width: '100%',
+  height: '90%',
+  margin: '0 auto'
+}))
