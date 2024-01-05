@@ -31,3 +31,12 @@ export const Cancel = styled.button`
 export const Center = styled.div`
     
 `
+export const ContainerCart = styled.div`
+padding-top: 30px;
+width: 40%;
+margin: 0 auto;
+min-height: 100vh;
+height: 100%;
+align-items: center;
+justify-content: center;
+`

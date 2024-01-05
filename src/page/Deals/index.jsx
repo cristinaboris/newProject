@@ -232,7 +232,6 @@ const [sort, setSort] = React.useState('');
 const handleChange = (event) => {
   setSort(event.target.value);
 };
-//
 
 useEffect(() => {
   console.log(filterItems)
