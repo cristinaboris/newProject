@@ -1,5 +1,7 @@
 import styled from "styled-components"
 import { Box, Typography, useMediaQuery } from '@mui/material';
+import { Link } from "react-router-dom";
+
 
 export const Container = styled(Box)(({theme}) => ({
   width: '95%',
@@ -18,7 +20,15 @@ export const Container = styled(Box)(({theme}) => ({
   height: '100%',
   }))
 
+export const LinkButton = styled(Link)(({theme}) => ({
+  textDecoration: 'none',
+  fontWeight: 'bold',
+  color: 'black',
+  '&:hover': {
+    color: 'red'
+ }
 
+}))
 
  export const BoxContainerTitle = styled(Box)(({theme}) => ({
   position: 'absolute',
@@ -26,6 +36,20 @@ export const Container = styled(Box)(({theme}) => ({
   paddingTop: '4%',
  paddingLeft: '4%'
   }))
+
+
+export const CenterButtonContainer = styled(Box)(({theme}) => ({
+  display: 'flex',
+    justifyContent: 'center',
+    top: '-34px',
+    position: 'relative'
+
+}))
+export const ButtonCenter = styled.button(({theme}) => ({
+width: '50%',
+height: '68px'
+
+}))
 
   export const TextBanner = styled(Typography)(({theme}) => ({
     textShadow: '1px 3px 2px grey',

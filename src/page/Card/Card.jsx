@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink, useParams } from 'react-router-dom'
-import styled from 'styled-components'
 import { addToCart } from '../../redux/actions'
 import { ContainerSide,Category,CoverButton,ButtonBuy,Description, DescriptionText, Price, Container,Left, LeftImg ,Right, Title,  } from './CardStyled'
 import { ToastContainer, toast } from 'react-toastify';
@@ -33,7 +32,6 @@ const dispatch = useDispatch()
 
     const {card} = useSelector((state) => state.data)
 
-    const {totalQuantity, totalPrice} = useSelector((state) => state.data)
 
     console.log(card, '111111111')
     console.log(product)
@@ -54,7 +52,7 @@ Description
 <DescriptionText>{product.description}</DescriptionText>
       </Description>
 <CoverButton>
-<ButtonBuy onClick={handleAddToCart}>To cart</ButtonBuy>
+<ButtonBuy  disabled={!!card.find(item=>item.id === product.id)} onClick={handleAddToCart}>To cart</ButtonBuy>
 <ButtonBuy onClick={handleAddToCart}> <NavLink to='/cart'>Buy in 1 click</NavLink></ButtonBuy>
 <ToastContainer position="top-right"
 autoClose={5000}

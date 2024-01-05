@@ -56,6 +56,9 @@ export const ButtonBuy = styled.button`
     &:hover{
      background: wheat
     }
+    &:disabled{
+        background: grey
+    }
 `
 export const Description = styled.div`
     width: 100%;
