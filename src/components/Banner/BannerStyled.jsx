@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export const Container = styled(Box)(({theme}) => ({
   width: '95%',
-  height: '100%',
+  height: '70%',
   margin: '0 auto',
   display: 'flex',
   flexDirection:'column',
@@ -17,11 +17,12 @@ export const Container = styled(Box)(({theme}) => ({
 
  export const ImageBanner = styled('img')(({theme}) => ({
   width: '100%',
-  height: '100%',
+  maxHeight: '600px',
   }))
 
 export const LinkButton = styled(Link)(({theme}) => ({
   textDecoration: 'none',
+  width: '600px',
   fontWeight: 'bold',
   color: 'black',
   '&:hover': {
@@ -46,7 +47,7 @@ export const CenterButtonContainer = styled(Box)(({theme}) => ({
 
 }))
 export const ButtonCenter = styled.button(({theme}) => ({
-width: '50%',
+width: '100%',
 height: '68px'
 
 }))

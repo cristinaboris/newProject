@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const PlusMinus = styled.div`
+    display: flex;
+    justify-content: space-between;
+`
+
 export const Container = styled.div`
 display: flex;
 margin-bottom: 7%;
@@ -11,7 +16,7 @@ cursor: pointer;
 `
 export const Right = styled.div`
 display: flex;
-justify-content: center;
+justify-content: space-between;
 align-items: center;
 flex-direction: column;
 gap: 20px;

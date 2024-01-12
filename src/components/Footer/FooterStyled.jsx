@@ -35,6 +35,15 @@ export const _Input = styled.input`
   margin-top: 10px;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
+@media (max-width: 768px) {
+  border: 1px solid #EE685F;
+  width: 120px;
+  height: 40px;
+  margin-top: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+    
+  }
 `
 export const ButtonInput = styled.button`
 width: 40px;
