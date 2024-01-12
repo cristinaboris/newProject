@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { quanityCart, decreaseQuantity} from '../../redux/actions'
-import { Left, Right, Center, Container, ImageRight, Cancel } from './CartStyled'
+import { Left, Right, Center, Container, ImageRight, Cancel ,PlusMinus} from './CartStyled'
 import DialogWindow from './DialogWindow'
 import { useState } from 'react'
 
@@ -31,14 +31,16 @@ const [dialog,setDialog] = useState({
 <ImageRight src={item.image}/>
     </Left>
     <Right>
+     
    <h3>{item.title}</h3> 
  <h4>Price: {item.price}</h4>
+ <PlusMinus>
+
+<p>All amount: {item.price * item.quantity}</p>
 <button onClick={() => increse(item.id)}>-</button>
 <button onClick={() => descrese(item.id)}>+</button>
-
-<p>{item.price * item.quantity}</p>
-<p>{item.quantity}</p>
-
+<p>Quantity: {item.quantity}</p>
+</PlusMinus>
     </Right>
    
     <Center><Cancel onClick={()=> setDialog({isLoading:true})}>X</Cancel></Center>
